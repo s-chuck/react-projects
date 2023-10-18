@@ -12,9 +12,7 @@ function App() {
     // counter = counter + 1;
     if(counter == 20) return;
     setcounter(counter + 1);
-    setcounter(counter + 1);
-    setcounter(counter + 1);
-    setcounter(counter + 1);
+    
   }
   const removeValue = () => {
     if(counter == 0) return;
