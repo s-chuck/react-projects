@@ -27,6 +27,10 @@ function App() {
   }, [length, numberAllowed, charAllowed, setPassword]); // Removed 'setpassword' from the dependencies
 
   const copyPasswordToClipboard = useCallback(() => {
+    //The value in useRef can be accessed by .current and here we are saying if there are any values present in here select() it.
+    passwordRef.current?.select();
+    //This one method named setSelectionRange is used to select the text only in teh given range.
+    passwordRef.current?.setSelectionRange(0, 100);
     window.navigator.clipboard.writeText(password);
   } , [password])
 
@@ -44,6 +48,8 @@ function App() {
             className='outline-none w-full py-1 px-3'
             placeholder='password'
             readOnly
+            //ref is used to make this input field a reference so it can be accessed through passwordRef variable.
+            //we can also use ref in many other cases for ex <p ref={passwordRef}> hello </p> so it is a js property.
             ref = {passwordRef}
           />
           <button 
