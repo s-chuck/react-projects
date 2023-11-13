@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//This InputBox function is used at the App.jsx file and all the variables and method that have passed here are done after passing there.
 function InputBox({
     label,
     amount,
@@ -32,6 +32,7 @@ function InputBox({
             <div className="w-1/2 flex flex-wrap justify-end text-right">
                 <p className="text-black/40 mb-2 w-full">Currency Type</p>
                 {/* In the select tag we have nested the option tag which is used to give options to the user that which currency is to be selected in select tag we have className for styling and value */}
+                {/* In the below select tag we have used a onChange here we have been passed a parameter from App.jsx and it is passing a currency name that's why we haven't converted it to Number() that we have done above because in above we are getting a numerical value but in strings  */}
                 <select
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
                     value={selectCurrency}

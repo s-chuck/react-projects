@@ -14,13 +14,14 @@ function App() {
 
   const options = Object.keys(currencyInfo)
 
+  //When we have to swap the above and below options just call the swap method and the rest would be taken care of the setFrom(to) sets the value of (from -> to) and the setTo(from) sets the value (to -> from). 
   const swap = () => {
     setFrom(to)
     setTo(from)
     setConvertedAmount(amount)
     setAmount(convertedAmount)
   }
-  
+  //The convert function is called because the amount lets say given by the user is 50usd and we have to convert it into inr then we have to multiply the amount * currencyInfo[to] which is equal to our customhook useCurrencyInfo(from) so from this hook we get all the currency exchange rate and then using the variable we can access the individual values of the currency we want the conversion rate for.
   const convert = () => {
     setConvertedAmount(amount * currencyInfo[to])
   }
@@ -37,10 +38,11 @@ function App() {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        convert()
-                       
+                        convert()   
                     }}
-                >
+                >   
+                {/* In the next div what we have done is we have called the InputBox component which is present in InputBox.jsx in components folder and passing all of these variables and methods which is gonna be processed later at that file. */}
+                {/* in the below InputBox compenent we have use onAmountChange() method because we would be able to change the value of the amount we want to convert to other currencies */}
                     <div className="w-full mb-1">
                         <InputBox
                             label="From"
@@ -61,6 +63,7 @@ function App() {
                         </button>
                     </div>
                     <div className="w-full mt-1 mb-4">
+                        {/* in this InputBox we haven't passed the onAmountChange() method because we don't need to manually put the value in it as it should be processed according to the amount inserted by the user who want to convert one currency to other. */}
                         <InputBox
                             label="To"
                             amount={convertedAmount}
