@@ -11,16 +11,16 @@ function App() {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
   }
 
+  //we have defined the updateTodo() into Todoitem.jsx file you can see line no. 12.
   const updateTodo = (id, todo) => {
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)))
-
-
   }
-
+  //line no. 69 in Todoitem.jsx
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
   }
 
+  //line no. 18 in Todoitem.jsx
   const toggleComplete = (id) => {
     //console.log(id);
     setTodos((prev) =>
@@ -31,6 +31,8 @@ function App() {
         } : prevTodo))
   }
 
+
+  //this is everything that how we store things in local storage and how the data comes in strings we convert it inot json using json.parse(localStorage.getItem("todos")) todos is the array which contains all the todo.
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
 
