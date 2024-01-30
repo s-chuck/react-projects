@@ -1,33 +1,33 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios'; // Fix the import statement
+import Home from './pages/Home';
+import About from './pages/About';
+
 function App() {
-  const [todos, setTodos] = useState();
-  const [images, setImage] = useState();
+  const [fact, setFact] = useState([]);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/about');
+  };
+
   useEffect(() => {
     axios.get("https://catfact.ninja/fact")
-      .then((res) => setTodos(res.data));
-  }, [])
-  useEffect(() => {
-    axios.get("https://api.thecatapi.com/v1/images/search")
-      .then((res) => setImage(res.data[0].url));
-  }, [])
+      .then((res) => setFact(res.data));
+  }, []);
+
   return (
     <>
-      <div className='flex flex-col items-center'>
-        <img src={images ? (images) : (<p>Wait a sec...</p>)} className='h-64 w-64 rounded' />
-        <ul className=''>
-          {todos ? (
-            <div>
-              {todos.fact}
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </ul>
-      </div>
-
+      <button onClick={handleClick}>About page..</button>
+      <p>{fact}</p>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Link to='/about'>About</Link>
     </>
   );
-};
+}
 
-export default App
+export default App;
