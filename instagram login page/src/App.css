@@ -37,6 +37,7 @@
 }
 
 .btn {
+  border:none;
   margin: 10px 40px 5px 32px;
   background-color: #0095F6;
   padding: 3px;
@@ -44,6 +45,7 @@
 
 .link {
   margin: 0 40px 0 100px;
+  background-color: red;
 }
 
 .icon {

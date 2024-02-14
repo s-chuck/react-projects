@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 //2.this hook is called whenever user selects some currency name in the select bar and then this hook will send all the data of this particular currency to the main App.jsx
 //3.The response we will be getting from the fetch we will use (.then(res) => res.json())to convert this into json format and through (.then(res) => setData(res[currency])) it means make data = currency(usd) {..........}.
 
-function useCurrencyInfo(currency){
+export default function useCurrencyInfo(currency){
     const [data, setData] = useState({});
     useEffect(() => {
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
@@ -18,4 +18,3 @@ function useCurrencyInfo(currency){
     return data;
 }
 
-export default useCurrencyInfo;
