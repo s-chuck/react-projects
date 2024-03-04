@@ -1,19 +1,15 @@
 import React from 'react'
 import CartItem from './CartItem'
 import { useSelector, useDispatch } from 'react-redux'
-// import {
-//   getAllCartItems,
-//   getCartError,
-//   getCartLoadingState,
-// } from '../store/slices/CartSlice';
-import { updateGrandTotal } from '../store/slices/CartSlice';
 
 export default function Cart() {
   const cartItems = useSelector((state) => {
+    console.log(state.cart.data);
     return state.cart.data.map(({ productId, quantity }) => {
       const cartProduct = state.product.data.find(
         (product) => product.id === productId
       );
+      console.log(cartProduct);
       return { ...cartProduct, quantity };
     })
       .filter(({ title }) => title);
@@ -69,3 +65,5 @@ export default function Cart() {
     </div>
   )
 }
+
+

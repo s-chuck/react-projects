@@ -10,9 +10,9 @@ export const store = configureStore({
   },
 });
 
-console.log('Initial State:', store.getState());
+// console.log('Initial State:', store.getState());
 
-// Subscribe to store changes and log them
-const unsubscribe = store.subscribe(() => {
-  console.log('State Updated:', store.getState());
-});
+// // Subscribe to store changes and log them
+// const unsubscribe = store.subscribe(() => {
+//   console.log('State Updated:', store.getState());
+// });

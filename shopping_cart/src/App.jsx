@@ -1,6 +1,6 @@
 import React from 'react';
 import Product from '../components/Product'
-import Header from '../components/Header.jsx';
+import Header from '../pages/Header';
 import { Outlet } from 'react-router-dom';
 import './App.css';
 

@@ -23,7 +23,7 @@ const ProductSlice = createSlice({
     },
 })
 
-export const { setProduct, setLoading, setError,fetchProducts,fetchProductsError,updateAllProducts } = ProductSlice.actions;
+export const { setProduct, setLoading, setError} = ProductSlice.actions;
 export const getAllProducts = (state) => state.product.data;
 export const getProductLoadingState = (state) => state.product.loading
 export const getProductError = (state) => state.product.error

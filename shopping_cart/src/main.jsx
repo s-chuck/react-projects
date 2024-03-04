@@ -6,7 +6,7 @@ import { store } from '../store';
 import './index.css'
 import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
-import Home from '../components/home.jsx';
+import Home from '../pages/home.jsx';
 import Cart from '../components/Cart.jsx';
 const router = createBrowserRouter([
   {

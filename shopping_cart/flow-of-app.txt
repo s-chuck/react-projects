@@ -12,4 +12,9 @@ Now lets move towards the componets part although i have many files cluttered in
 
     --><product/> this is being rendered from inside the home component as it shows the rating , price , add to cart button on the screen Nothing special.
 
-    --><Cart/> this one is also interesting as we can already tell by it's name that is the component which is responsible for out cart and contains all the logic related to how cart is being shown on the screen
+    --><Cart/> this one is also interesting as we can already tell by it's name that is the component which is responsible for out cart and contains all the logic related to how cart is being shown on the screen, first what happens is we are extracting the data from store using useSelector hook and how are we doing is we are mapping the data that is stored in cart and why are we doing this is because we want to extract all of the information that is associated with the ProductId as when we store something in the cart only the productId and quantity is getting stored but we also have to print the title,image,and all the things about that particular product so that's why we use the mapping and are creating a const cartItems;
+    After that is done there is some basic html,and at the end we are again mapping cartItems and derefrencing the id,title,rating and many other things and are sending them one by one to the <CartItme/> hook using the props.
+
+    --><CartItem/> this one is simple we are just receiving it from the <Cart/> hook and then we are just printing the received products one by one and we have one more thing in that which is + and - which increase or decrease the amount of the product by dispatching the action.
+    
+
